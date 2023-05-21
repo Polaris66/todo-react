@@ -10,3 +10,7 @@
 - Deployment
 
 ## TODO
+
+- Responsiveness
+- Better Styling
+- Authentication
