@@ -4,7 +4,7 @@ To learn and demonstrate React Hooks and Functional Components.
 
 ## Demo
 
-<a src="https://todopolaris.netlify.app/">Todo App</a>
+<a href="https://todopolaris.netlify.app/">Todo App</a>
 <img src="versions/3.png">
 
 ## Setup
