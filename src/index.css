@@ -50,6 +50,22 @@ nav {
   color: whitesmoke;
 }
 
+.todoCard.done {
+  text-decoration: line-through;
+  text-decoration-color: whitesmoke;
+}
+
+.todoCard .done {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1%;
+  margin-left: 2%;
+}
+
+.todoCard .done input {
+  transform: scale(1.5);
+}
+
 .todoCard:last-child {
   border-width: 4px 4px 4px 4px;
 }
@@ -62,6 +78,13 @@ nav {
 .value p {
   display: flex;
   flex-wrap: wrap;
+}
+
+.value input {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: x-large;
+  padding: 2%;
 }
 .delete {
   display: flex;

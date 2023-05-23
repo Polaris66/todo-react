@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import Form from "./components/Form";
+import Todos from "./components/Todos";
 function App() {
   const [todos, setTodos] = useState(() => {
     if (localStorage.getItem("todos")) {
@@ -19,7 +21,7 @@ function App() {
     e.preventDefault();
     if (newTodo !== "") {
       setTodos((prevTodos) => {
-        return [{ id: uuidv4(), value: newTodo }, ...prevTodos];
+        return [{ id: uuidv4(), value: newTodo, done: false }, ...prevTodos];
       });
       setNewTodo("");
     }
@@ -36,6 +38,24 @@ function App() {
   const deleteAll = () => {
     setTodos([]);
   };
+
+  const doneTodo = (id) => {
+    setTodos((prevTodos) => {
+      return prevTodos.map((todo) => {
+        if (todo.id !== id) return todo;
+        return { ...todo, done: !todo.done };
+      });
+    });
+  };
+
+  const editTodo = (id, value) => {
+    setTodos((prevTodos) => {
+      return prevTodos.map((todo) => {
+        if (todo.id !== id) return todo;
+        return { ...todo, value };
+      });
+    });
+  };
   return (
     <div className="App">
       <nav className="navbar">
@@ -43,48 +63,18 @@ function App() {
       </nav>
 
       <div className="main">
-        <div className="form">
-          <form onSubmit={addTodo}>
-            <div className="label">
-              <label>Add Todo</label>
-            </div>
-            <input
-              type="text"
-              value={newTodo}
-              onChange={(e) => {
-                setNewTodo(e.target.value);
-              }}
-              placeholder="Stuff"
-              maxLength={40}
-              autoFocus
-            />
-            <div>
-              <button className="deleteAll" onClick={deleteAll} type="button">
-                Delete All
-              </button>
-            </div>
-          </form>
-        </div>
-        <div className="todos">
-          {todos.map((todo) => {
-            return (
-              <div className="todoCard" key={todo.id}>
-                <div className="value">
-                  <p>{todo.value}</p>
-                </div>
-                <div className="delete">
-                  <button
-                    onClick={() => {
-                      deleteTodo(todo.id);
-                    }}
-                  >
-                    X
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        <Form
+          addTodo={addTodo}
+          newTodo={newTodo}
+          setNewTodo={setNewTodo}
+          deleteAll={deleteAll}
+        />
+        <Todos
+          todos={todos}
+          deleteTodo={deleteTodo}
+          doneTodo={doneTodo}
+          editTodo={editTodo}
+        />
       </div>
     </div>
   );

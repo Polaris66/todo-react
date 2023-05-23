@@ -2,6 +2,11 @@
 
 To learn and demonstrate React Hooks and Functional Components.
 
+## Demo
+
+<a src="https://todopolaris.netlify.app/">Todo App</a>
+<img src="versions/3.png">
+
 ## Setup
 
 - Install node.js, npm (if not existing already)
@@ -22,17 +27,25 @@ To learn and demonstrate React Hooks and Functional Components.
 - Button Style Somewhat Fixed
 - Delete All
 - Max Length Fix for long sentences
+- Checkbox
+- Edit Todo (On Click change into input, change back after editing)
 
 ## TODO
 
-- Add Checkbox
-- Better Styling (Gradient,Shadow)
-- Hover On Buttons
-- Focus on input after entering
-- Edit Todo (On Click change into input, change back after editing)
-- Responsiveness
+### Functionality
+
 - Search Functionality
+
+### Style
+
+- Hover On Buttons
+- Better Styling (Gradient,Shadow)
+
+### Extra Feature
+
 - Authentication
 
-- Fix Button Styling
-- Account for sentence being longer
+### Code Improvement
+
+- useContext, useReducers for removing prop cascading
+- Add unit tests
