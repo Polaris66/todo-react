@@ -1,55 +1,118 @@
 body {
   background-color: #fefbe9;
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
 }
+
+button {
+  display: flex;
+  border: none;
+  font-size: large;
+}
+
+input {
+  font-family: monospace;
+}
+
 nav {
+  display: flex;
+  justify-content: space-evenly;
   padding: 24px;
   margin: 0;
-  background-color: #f0a04b;
+  margin-bottom: 2%;
+  background-color: black;
+  color: whitesmoke;
   font-size: x-large;
 }
 
-.addTodo {
-  width: 20%;
-  margin-top: 1%;
-  padding: 1%;
+.main {
   position: absolute;
-  height: 100%;
-  background-color: burlywood;
-  text-align: center;
-}
-.addTodo label {
-  padding: 2%;
-  margin: 5%;
-}
+  width: 100%;
+  height: auto;
+  left: 25%;
 
-.addTodo input {
-  padding: 2%;
-  margin: 5%;
-}
-.addTodo button {
-  background-color: rgb(47, 218, 218);
-  padding: 3%;
-  border-radius: 12%;
-  margin: 3%;
-}
-.todos {
-  position: absolute;
   display: flex;
-
   flex-direction: column;
-  width: 77%;
-  margin-top: 1%;
-  right: 0;
+  justify-content: space-evenly;
+
+  font-size: x-large;
 }
 .todoCard {
-  padding: 1%;
-}
-button {
-  margin: 0;
-  background-color: #0000;
+  border: solid;
+  border-width: 4px 4px 0px 4px;
+  border-color: lawngreen;
+  display: flex;
+
+  width: 50%;
+  height: 100%;
+  background-color: black;
+  color: whitesmoke;
 }
 
+.todoCard:last-child {
+  border-width: 4px 4px 4px 4px;
+}
+.value {
+  display: block;
+  flex-grow: 1;
+  padding: 2%;
+}
+
+.value p {
+  display: flex;
+  flex-wrap: wrap;
+}
 .delete {
-  margin-left: 1%;
-  color: red;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.delete button {
+  font-size: large;
+  color: black;
+  border: solid;
+  border-color: whitesmoke;
+}
+
+.form {
+  width: 50%;
+  margin-bottom: 2%;
+  font-size: xx-large;
+}
+
+.form form {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.form .label {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.form form input {
+  font-size: xx-large;
+  width: 40%;
+  height: auto;
+}
+
+.form form button {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: whitesmoke;
+  border: solid;
+  justify-content: space-evenly;
+  border-radius: 10%;
+  padding: 20%;
+  height: 100%;
+  width: 150%;
+}
+
+.form form button:hover {
+  background-color: black;
+  color: white;
 }

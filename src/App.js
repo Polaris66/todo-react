@@ -19,7 +19,7 @@ function App() {
     e.preventDefault();
     if (newTodo !== "") {
       setTodos((prevTodos) => {
-        return [...prevTodos, { id: uuidv4(), value: newTodo }];
+        return [{ id: uuidv4(), value: newTodo }, ...prevTodos];
       });
       setNewTodo("");
     }
@@ -33,42 +33,58 @@ function App() {
     });
   };
 
+  const deleteAll = () => {
+    setTodos([]);
+  };
   return (
     <div className="App">
       <nav className="navbar">
         <h2>Todo List</h2>
       </nav>
-      <form className="addTodo" onSubmit={addTodo}>
-        <div className>
-          <label>Add Todo</label>
-        </div>
-        <input
-          type="text"
-          value={newTodo}
-          onChange={(e) => {
-            setNewTodo(e.target.value);
-          }}
-        />
-        <div>
-          <button type="submit">Add Todo</button>
-        </div>
-      </form>
-      <div className="todos">
-        {todos.map((todo) => {
-          return (
-            <div className="todoCard">
-              {todo.value}
-              <button
-                className="delete"
-                onClick={() => {
-                  deleteTodo(todo.id);
-                }}
-              >
-                Delete
+
+      <div className="main">
+        <div className="form">
+          <form onSubmit={addTodo}>
+            <div className="label">
+              <label>Add Todo</label>
+            </div>
+            <input
+              type="text"
+              value={newTodo}
+              onChange={(e) => {
+                setNewTodo(e.target.value);
+              }}
+              placeholder="Stuff"
+              maxLength={40}
+              autoFocus
+            />
+            <div>
+              <button className="deleteAll" onClick={deleteAll} type="button">
+                Delete All
               </button>
             </div>
-          );
-        })}
+          </form>
+        </div>
+        <div className="todos">
+          {todos.map((todo) => {
+            return (
+              <div className="todoCard" key={todo.id}>
+                <div className="value">
+                  <p>{todo.value}</p>
+                </div>
+                <div className="delete">
+                  <button
+                    onClick={() => {
+                      deleteTodo(todo.id);
+                    }}
+                  >
+                    X
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
