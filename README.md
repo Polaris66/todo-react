@@ -35,6 +35,7 @@ To learn and demonstrate React Hooks and Functional Components.
 ### Functionality
 
 - Search Functionality
+- Priority Functionality
 
 ### Style
 
