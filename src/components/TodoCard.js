@@ -5,7 +5,7 @@ export default function TodoCard({ todo, deleteTodo, doneTodo, editTodo }) {
   const [editValue, setEditValue] = useState(todo.value);
 
   const doneEditing = (e) => {
-    if (e.target.value == "") {
+    if (e.target.value === "") {
       deleteTodo(todo.id);
     }
     setEditing(false);
@@ -37,7 +37,7 @@ export default function TodoCard({ todo, deleteTodo, doneTodo, editTodo }) {
             }}
             onBlur={doneEditing}
             onKeyDown={(e) => {
-              if (e.key == "Enter") {
+              if (e.key === "Enter") {
                 doneEditing(e);
               }
             }}
